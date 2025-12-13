@@ -80,8 +80,8 @@ export const NotificationBell = () => {
       </Button>
 
       {isOpen && (
-        <Card className="absolute right-0 top-12 w-96 max-h-96 z-50 shadow-lg">
-          <CardHeader className="pb-3">
+        <Card className="absolute right-0 top-12 w-96 max-h-96 z-50 shadow-lg bg-white">
+          <CardHeader className="pb-3 bg-white">
             <div className="flex items-center justify-between">
               <CardTitle className="text-lg">Notifications</CardTitle>
               {unreadCount > 0 && (
@@ -97,20 +97,20 @@ export const NotificationBell = () => {
               )}
             </div>
           </CardHeader>
-          <CardContent className="p-0">
+          <CardContent className="p-0 bg-white">
             <ScrollArea className="h-80">
               {notifications.length === 0 ? (
-                <div className="p-6 text-center text-gray-500">
+                <div className="p-6 text-center text-gray-500 bg-white">
                   <Bell className="h-8 w-8 mx-auto mb-2 opacity-50" />
                   <p>No notifications yet</p>
                 </div>
               ) : (
-                <div className="divide-y">
+                <div className="divide-y bg-white">
                   {notifications.map((notification) => (
                     <div
                       key={notification.id}
-                      className={`p-4 hover:bg-gray-50 cursor-pointer ${
-                        !notification.read_at ? 'bg-blue-50' : ''
+                      className={`p-4 hover:bg-gray-50 cursor-pointer bg-white ${
+                        !notification.read_at ? '!bg-blue-50' : ''
                       }`}
                       onClick={() => !notification.read_at && handleMarkAsRead(notification.id)}
                     >
