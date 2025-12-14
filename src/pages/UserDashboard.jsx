@@ -10,6 +10,7 @@ import { Label } from '../components/ui/label';
 import { NotificationPreferences } from '../components/NotificationPreferences';
 import SavedSearches from '../components/SavedSearches';
 import ImageWithFallback from '../components/ImageWithFallback';
+import Header from '../components/Header';
 import {
   User,
   Heart,
@@ -153,6 +154,7 @@ const UserDashboard = () => {
 
   return (
     <div className="min-h-screen bg-gray-50">
+      <Header />
       <div className="max-w-7xl mx-auto px-3 sm:px-4 md:px-6 lg:px-8 py-4 sm:py-6 md:py-8">
         <div className="mb-4 sm:mb-6 md:mb-8">
           <div className="flex flex-col sm:flex-row items-start sm:items-center gap-3 sm:gap-4 mb-3 sm:mb-4">
@@ -265,7 +267,7 @@ const UserDashboard = () => {
                     <TrendingUp className="h-6 w-6 sm:h-8 sm:w-8 text-green-500 mb-2 sm:mb-0" />
                     <div className="sm:ml-4 text-center sm:text-left">
                       <p className="text-xs sm:text-sm font-medium text-gray-600">Total Savings</p>
-                      <p className="text-xl sm:text-2xl font-bold text-gray-900">${stats.totalSavings.toFixed(2)}</p>
+                      <p className="text-xl sm:text-2xl font-bold text-gray-900">₹{stats.totalSavings.toFixed(2)}</p>
                     </div>
                   </div>
                 </CardContent>
@@ -316,8 +318,8 @@ const UserDashboard = () => {
                           <p className="text-xs sm:text-sm text-gray-600">{deal.store} • {deal.discount}% off</p>
                         </div>
                         <div className="text-right flex-shrink-0">
-                          <p className="font-bold text-sm sm:text-base text-gray-900">${deal.discounted_price}</p>
-                          <p className="text-xs sm:text-sm text-gray-500 line-through">${deal.original_price}</p>
+                          <p className="font-bold text-sm sm:text-base text-gray-900">₹{deal.discounted_price}</p>
+                          <p className="text-xs sm:text-sm text-gray-500 line-through">₹{deal.original_price}</p>
                         </div>
                       </div>
                     ))}
@@ -380,14 +382,14 @@ const UserDashboard = () => {
                           <div className="flex items-center justify-between mb-3 sm:mb-4">
                             <div className="flex items-baseline gap-1 sm:gap-2">
                               <span className="text-xl sm:text-2xl font-bold text-gray-900">
-                                ${deal.discounted_price}
+                                ₹{deal.discounted_price}
                               </span>
                               <span className="text-xs sm:text-sm text-gray-500 line-through">
-                                ${deal.original_price}
+                                ₹{deal.original_price}
                               </span>
                             </div>
                             <div className="text-xs sm:text-sm text-green-600 font-semibold">
-                              Save ${(deal.original_price - deal.discounted_price).toFixed(2)}
+                              Save ₹{(deal.original_price - deal.discounted_price).toFixed(2)}
                             </div>
                           </div>
                           <Button
@@ -451,8 +453,8 @@ const UserDashboard = () => {
                           <h4 className="font-medium text-gray-900 line-clamp-1">{deal.title}</h4>
                           <p className="text-sm text-gray-600">{deal.store} • {deal.category}</p>
                           <div className="flex items-center gap-4 mt-1">
-                            <span className="text-lg font-bold text-gray-900">${deal.discounted_price}</span>
-                            <span className="text-sm text-gray-500 line-through">${deal.original_price}</span>
+                            <span className="text-lg font-bold text-gray-900">₹{deal.discounted_price}</span>
+                            <span className="text-sm text-gray-500 line-through">₹{deal.original_price}</span>
                             <span className="text-sm text-green-600 font-medium">{deal.discount}% off</span>
                           </div>
                         </div>

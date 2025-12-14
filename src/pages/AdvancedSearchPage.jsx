@@ -45,8 +45,8 @@ const AdvancedSearchPage = () => {
               <div className="flex items-center flex-wrap gap-2 text-xs sm:text-sm text-gray-500">
                 <span className="font-medium text-gray-700">{deal.store}</span>
                 <span className="text-green-600 font-semibold">↓{deal.discount}%</span>
-                <span className="font-bold text-black text-sm sm:text-base">${deal.discountedPrice}</span>
-                <span className="line-through">${deal.originalPrice}</span>
+                <span className="font-bold text-black text-sm sm:text-base">₹{deal.discountedPrice}</span>
+                <span className="line-through">₹{deal.originalPrice}</span>
               </div>
               <div className="flex items-center flex-wrap gap-2 mt-2 text-xs">
                 <div className="flex items-center">
@@ -58,18 +58,6 @@ const AdvancedSearchPage = () => {
                   <Clock className="h-3 w-3 mr-1" />
                   {deal.publishedAt}
                 </span>
-                {deal.verified ? (
-                  <div className="flex items-center bg-green-50 text-green-700 px-2 py-1 rounded-full">
-                    <CheckCircle className="h-3 w-3 mr-1" />
-                    <span className="hidden sm:inline">Verified</span>
-                    <span className="sm:hidden">✓</span>
-                  </div>
-                ) : (
-                  <div className="flex items-center bg-yellow-50 text-yellow-700 px-2 py-1 rounded-full">
-                    <AlertTriangle className="h-3 w-3 mr-1" />
-                    <span className="hidden sm:inline">Unverified</span>
-                  </div>
-                )}
                 <div className="flex items-center bg-blue-50 text-blue-700 px-2 py-1 rounded-full">
                   <Shield className="h-3 w-3 mr-1" />
                   <span>98%</span>

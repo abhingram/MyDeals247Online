@@ -23,7 +23,7 @@ const Home = () => {
   return (
     <>
       <Helmet>
-        <title>New Deals - Deals247 | Latest & Fresh Deals</title>
+        <title>Latest Deals - Deals247 | Latest & Fresh Deals</title>
         <meta name="description" content="Discover the newest and latest deals on Deals247. Find fresh deals and offers that were just added to our platform." />
       </Helmet>
       <Header onSearch={handleSearch} />

@@ -290,42 +290,6 @@ export default function ContactUs() {
             </div>
           </motion.div>
         </div>
-
-        {/* FAQ Section */}
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          className="mt-16 bg-white rounded-lg shadow-lg p-8"
-        >
-          <h2 className="text-2xl font-bold text-gray-900 mb-6">Frequently Asked Questions</h2>
-          <div className="space-y-6">
-            <div>
-              <h3 className="text-lg font-semibold text-gray-900 mb-2">How do I submit a deal?</h3>
-              <p className="text-gray-600">
-                Simply create an account, click on "Submit Deal" in the navigation menu, and fill out the deal submission form with all relevant details including price, discount, and expiration date.
-              </p>
-            </div>
-            <div>
-              <h3 className="text-lg font-semibold text-gray-900 mb-2">How do I report an expired or invalid deal?</h3>
-              <p className="text-gray-600">
-                Each deal page has a "Report" button. Click it and select the reason for reporting. Our team will review and take action within 24 hours.
-              </p>
-            </div>
-            <div>
-              <h3 className="text-lg font-semibold text-gray-900 mb-2">Can I partner with Deals247 for my business?</h3>
-              <p className="text-gray-600">
-                Yes! We're always looking for partnerships with retailers and brands. Please contact us at D247Online@outlook.com with "Business Partnership" in the subject line.
-              </p>
-            </div>
-            <div>
-              <h3 className="text-lg font-semibold text-gray-900 mb-2">How do price alerts work?</h3>
-              <p className="text-gray-600">
-                Save deals to your favorites, and we'll automatically notify you when the price drops or when the deal is about to expire.
-              </p>
-            </div>
-          </div>
-        </motion.div>
       </div>
     </div>
     <Footer />

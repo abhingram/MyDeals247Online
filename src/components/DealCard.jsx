@@ -195,66 +195,65 @@ const DealCard = ({ deal }) => {
               <span className="text-xs font-semibold">Verified</span>
             </div>
           )}
+          {!verified && (
+            <div className="absolute bottom-2 sm:bottom-3 left-2 sm:left-3 flex items-center bg-yellow-500 text-white px-2 sm:px-2.5 py-0.5 sm:py-1 rounded-full shadow-md">
+              <AlertTriangle className="h-3 w-3 sm:h-3.5 sm:w-3.5 mr-1" />
+              <span className="text-xs font-semibold">Unverified</span>
+            </div>
+          )}
         </div>
 
         {/* Content Section - Responsive padding */}
-        <div className="deal-content p-3 sm:p-4">
-          {/* Title - Responsive sizing */}
-          <h3 className="deal-title text-sm sm:text-base font-semibold text-gray-900 leading-snug mb-2 sm:mb-3 line-clamp-2 min-h-[2.5rem] sm:min-h-[3rem]">
+        <div className="deal-content p-3 sm:p-4 space-y-2 sm:space-y-3">
+          {/* Row One: Title - 14px, 2 lines minimum */}
+          <h3 className="deal-title text-sm font-semibold text-gray-900 leading-tight line-clamp-2 min-h-[2.5rem]">
             {title}
           </h3>
 
-          {/* Price Section - Responsive sizing */}
-          <div className="deal-prices mb-2 sm:mb-3 flex items-baseline gap-2">
-            <span className="price text-xl sm:text-2xl font-bold text-gray-900">
-              ${discountedPrice}
-            </span>
-            <span className="old-price text-sm sm:text-base text-gray-400 line-through">
-              ${originalPrice}
-            </span>
-          </div>
-
-          {/* Store and Rating - Responsive */}
-          <div className="flex items-center justify-between mb-2 sm:mb-3 pb-2 sm:pb-3 border-b border-gray-100">
-            <div className="flex items-center gap-1.5 sm:gap-2">
-              <Award className="h-3.5 w-3.5 sm:h-4 sm:w-4 text-orange-500 flex-shrink-0" />
-              <span className="text-xs sm:text-sm font-medium text-gray-700 truncate">{store}</span>
+          {/* Row Two: Price and Store in one row - 12px */}
+          <div className="flex items-center justify-between">
+            <div className="deal-prices flex items-baseline gap-2">
+              <span className="price text-xs font-bold text-gray-900">
+                ₹{discountedPrice}
+              </span>
+              <span className="old-price text-xs text-gray-400 line-through">
+                ₹{originalPrice}
+              </span>
             </div>
-            
-            <div className="flex items-center gap-1 flex-shrink-0">
-              <Star className="h-3.5 w-3.5 sm:h-4 sm:w-4 fill-yellow-400 text-yellow-400" />
-              <span className="text-xs sm:text-sm font-semibold text-gray-900">{rating}</span>
-              <span className="text-xs text-gray-500 hidden sm:inline">({reviews.toLocaleString()})</span>
+            <div className="flex items-center gap-1.5">
+              <Award className="h-3.5 w-3.5 text-orange-500 flex-shrink-0" />
+              <span className="text-xs font-medium text-gray-700">{store}</span>
             </div>
           </div>
 
-          {/* Trust Indicators Row - Responsive badges */}
-          <div className="flex items-center gap-1.5 sm:gap-2 mb-2 sm:mb-3 flex-wrap">
-            {!verified && (
-              <div className="flex items-center bg-yellow-50 text-yellow-700 px-1.5 sm:px-2 py-0.5 sm:py-1 rounded-md">
-                <AlertTriangle className="h-3 w-3 mr-0.5 sm:mr-1 flex-shrink-0" />
-                <span className="text-xs font-medium">Unverified</span>
-              </div>
-            )}
-            <div className="flex items-center bg-blue-50 text-blue-700 px-1.5 sm:px-2 py-0.5 sm:py-1 rounded-md">
-              <Shield className="h-3 w-3 mr-0.5 sm:mr-1 flex-shrink-0" />
-              <span className="text-xs font-medium">98%</span>
-            </div>
-            <div className="flex items-center bg-green-50 text-green-700 px-1.5 sm:px-2 py-0.5 sm:py-1 rounded-md">
-              <ThumbsUp className="h-3 w-3 mr-0.5 sm:mr-1 flex-shrink-0" />
-              <span className="text-xs font-medium">95%</span>
-            </div>
-          </div>
-
-          {/* Footer - Responsive */}
-          <div className="flex items-center justify-between text-xs text-gray-500">
+          {/* Row Three: Rating and Trust Indicators in one row - 12px */}
+          <div className="flex items-center justify-between">
             <div className="flex items-center gap-1">
-              <Clock className="h-3 w-3 sm:h-3.5 sm:w-3.5 flex-shrink-0" />
-              <span className="font-medium truncate">Published: {publishedAt}</span>
+              <Star className="h-3.5 w-3.5 fill-yellow-400 text-yellow-400" />
+              <span className="text-xs font-semibold text-gray-900">{rating}</span>
+              <span className="text-xs text-gray-500 ml-0.5">({reviews.toLocaleString()})</span>
             </div>
-            <div className="flex items-center gap-1 text-blue-600 flex-shrink-0">
-              <ExternalLink className="h-3 w-3 sm:h-3.5 sm:w-3.5" />
-              <span className="font-medium">Active</span>
+            <div className="flex items-center gap-1.5">
+              <div className="flex items-center bg-blue-50 text-blue-700 px-1.5 py-0.5 rounded-md">
+                <Shield className="h-3 w-3 mr-0.5 flex-shrink-0" />
+                <span className="text-xs font-medium">98%</span>
+              </div>
+              <div className="flex items-center bg-green-50 text-green-700 px-1.5 py-0.5 rounded-md">
+                <ThumbsUp className="h-3 w-3 mr-0.5 flex-shrink-0" />
+                <span className="text-xs font-medium">95%</span>
+              </div>
+            </div>
+          </div>
+
+          {/* Footer - 12px */}
+          <div className="flex items-center justify-between pt-1 border-t border-gray-100">
+            <div className="flex items-center gap-1 flex-1 min-w-0">
+              <Clock className="h-3 w-3 flex-shrink-0 text-gray-400" />
+              <span className="text-xs text-gray-500 font-medium truncate">{publishedAt}</span>
+            </div>
+            <div className="flex items-center gap-1 text-blue-600 flex-shrink-0 ml-2">
+              <ExternalLink className="h-3 w-3" />
+              <span className="text-xs font-medium">Active</span>
             </div>
           </div>
         </div>

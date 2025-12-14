@@ -18,6 +18,7 @@ import affiliateRoutes from './routes/affiliate.js';
 import bulkRoutes from './routes/bulk.js';
 import trustRoutes from './routes/trust.js';
 import contactRoutes from './routes/contact.js';
+import newsletterRoutes from './routes/newsletter.js';
 import { startNotificationScheduler } from './services/notificationScheduler.js';
 
 // Get current directory for ES modules
@@ -60,6 +61,7 @@ app.use('/api/affiliate', affiliateRoutes);
 app.use('/api/bulk', bulkRoutes);
 app.use('/api/trust', trustRoutes);
 app.use('/api/contact', contactRoutes);
+app.use('/api/newsletter', newsletterRoutes);
 
 // Short URL redirects
 app.use('/s', shortenerRoutes);

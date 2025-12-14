@@ -297,7 +297,7 @@ const SubmitDeal = () => {
                 </div>
 
                 <div>
-                  <Label htmlFor="original_price">Original Price ($) *</Label>
+                  <Label htmlFor="original_price">Original Price (₹) *</Label>
                   <Input
                     id="original_price"
                     name="original_price"
@@ -312,7 +312,7 @@ const SubmitDeal = () => {
                 </div>
 
                 <div>
-                  <Label htmlFor="discounted_price">Discounted Price ($) *</Label>
+                  <Label htmlFor="discounted_price">Discounted Price (₹) *</Label>
                   <Input
                     id="discounted_price"
                     name="discounted_price"

@@ -136,14 +136,14 @@ const Favorites = () => {
                   <div className="flex items-center justify-between mb-4">
                     <div className="flex items-baseline gap-2">
                       <span className="text-2xl font-bold text-gray-900">
-                        ${deal.discounted_price}
+                        ₹{deal.discounted_price}
                       </span>
                       <span className="text-sm text-gray-500 line-through">
-                        ${deal.original_price}
+                        ₹{deal.original_price}
                       </span>
                     </div>
                     <div className="text-sm text-green-600 font-semibold">
-                      Save ${(deal.original_price - deal.discounted_price).toFixed(2)}
+                      Save ₹{(deal.original_price - deal.discounted_price).toFixed(2)}
                     </div>
                   </div>
                   <Button

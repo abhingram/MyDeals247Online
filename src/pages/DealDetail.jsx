@@ -149,7 +149,7 @@ const DealDetail = () => {
     <div className="min-h-screen bg-gray-50">
       <Helmet>
         <title>{deal.title} - Deals247</title>
-        <meta name="description" content={`Get ${deal.discount}% off on ${deal.title} at ${deal.store}. Save $${(deal.originalPrice - deal.discountedPrice).toFixed(2)}!`} />
+        <meta name="description" content={`Get ${deal.discount}% off on ${deal.title} at ${deal.store}. Save ₹${(deal.originalPrice - deal.discountedPrice).toFixed(2)}!`} />
       </Helmet>
       
       <Header />
@@ -226,10 +226,10 @@ const DealDetail = () => {
             <div className="bg-gradient-to-br from-orange-50 to-pink-50 rounded-xl p-4 sm:p-6">
               <div className="flex items-baseline gap-2 sm:gap-3 mb-2">
                 <span className="text-2xl sm:text-3xl md:text-4xl font-bold text-gray-900">
-                  ${deal.discountedPrice}
+                  ₹{deal.discountedPrice}
                 </span>
                 <span className="text-base sm:text-lg md:text-xl text-gray-500 line-through">
-                  ${deal.originalPrice}
+                  ₹{deal.originalPrice}
                 </span>
               </div>
               <div className="flex items-center flex-wrap gap-2 sm:gap-3">
@@ -237,7 +237,7 @@ const DealDetail = () => {
                   {deal.discount}% OFF
                 </span>
                 <span className="text-green-600 font-semibold text-sm sm:text-base">
-                  Save ${(deal.originalPrice - deal.discountedPrice).toFixed(2)}
+                  Save ₹{(deal.originalPrice - deal.discountedPrice).toFixed(2)}
                 </span>
               </div>
             </div>

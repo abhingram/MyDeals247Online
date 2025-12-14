@@ -7,6 +7,7 @@ import { MobileNavigation } from '@/components/MobileUI';
 import { PWAInstallPrompt, OfflineIndicator, PWAUpdatePrompt } from '@/components/PWAComponents';
 import { usePerformanceMonitor } from '@/hooks/usePerformance.jsx';
 import BackToTop from '@/components/BackToTop';
+import ProtectedRoute from '@/components/ProtectedRoute';
 
 // Lazy load components for better performance
 const Home = React.lazy(() => import('@/pages/Home'));
@@ -72,9 +73,21 @@ function App() {
               <Routes>
                 <Route path="/" element={<Home />} />
                 <Route path="/deal/:id" element={<DealDetail />} />
-                <Route path="/dashboard" element={<UserDashboard />} />
-                <Route path="/submit-deal" element={<SubmitDeal />} />
-                <Route path="/admin" element={<AdminPanel />} />
+                <Route path="/dashboard" element={
+                  <ProtectedRoute>
+                    <UserDashboard />
+                  </ProtectedRoute>
+                } />
+                <Route path="/submit-deal" element={
+                  <ProtectedRoute>
+                    <SubmitDeal />
+                  </ProtectedRoute>
+                } />
+                <Route path="/admin" element={
+                  <ProtectedRoute requireAdmin={true}>
+                    <AdminPanel />
+                  </ProtectedRoute>
+                } />
                 <Route path="/search" element={<AdvancedSearchPage />} />
                 <Route path="/comparisons" element={<DealComparisonPage />} />
                 <Route path="/comparison/:id" element={<DealComparisonPage />} />

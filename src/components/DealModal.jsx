@@ -144,11 +144,11 @@ const DealModal = ({ deal, open, onOpenChange }) => {
           {/* Price Row - Responsive sizing */}
           <div className="flex items-center justify-between">
             <div className="text-xl sm:text-2xl font-bold text-orange-600">
-              ${deal.discountedPrice}
+              ₹{deal.discountedPrice}
             </div>
             <div className="text-right">
               <div className="text-xs sm:text-sm text-gray-400 line-through">
-                ${deal.originalPrice}
+                ₹{deal.originalPrice}
               </div>
               <div className="text-xs sm:text-sm text-green-600 font-semibold">
                 {deal.discount}% Off

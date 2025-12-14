@@ -9,6 +9,7 @@ import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@
 import { useAuth } from '@/contexts/AuthContext';
 import { api } from '@/lib/api';
 import { toast } from '@/components/ui/use-toast';
+import Header from '@/components/Header';
 import { ArrowLeft, Users, Package, UserCheck, UserX, Edit, Trash2, Crown, Shield, Upload, RotateCcw, Link, Copy, BarChart3, TrendingUp, Eye, MousePointer, Share2, Star, MessageSquare, Download, UploadCloud, DollarSign, Target, Award, CheckCircle, AlertTriangle, FileText, PieChart, Activity, Zap } from 'lucide-react';
 import BulkOperations from '@/components/BulkOperations';
 import AIAssistant from '@/components/AIAssistant';
@@ -693,6 +694,7 @@ const AdminPanel = () => {
 
   return (
     <div className="min-h-screen bg-gray-50">
+      <Header />
       <div className="max-w-7xl mx-auto px-3 sm:px-4 md:px-6 lg:px-8 py-4 sm:py-6 md:py-8">
         <div className="mb-6 md:mb-8">
           <div className="flex flex-col sm:flex-row items-start sm:items-center gap-3 sm:gap-4 mb-4">

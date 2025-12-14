@@ -254,8 +254,8 @@ const AdminPanel = () => {
                 <div className="flex items-center space-x-4 mt-1 text-sm text-gray-500">
                   <span className="font-medium text-gray-700">{deal.store}</span>
                   <span className="text-green-600 font-semibold">↓{deal.discount}%</span>
-                  <span className="font-bold text-black">${deal.discountedPrice}</span>
-                  <span className="line-through">${deal.originalPrice}</span>
+                  <span className="font-bold text-black">₹{deal.discountedPrice}</span>
+                  <span className="line-through">₹{deal.originalPrice}</span>
                   <div className="flex items-center">
                     <Star className="h-3 w-3 fill-yellow-400 text-yellow-400 mr-1" />
                     <span>{deal.rating}</span>
@@ -267,17 +267,6 @@ const AdminPanel = () => {
                   </span>
                 </div>
                 <div className="flex items-center space-x-2 mt-2">
-                  {deal.verified ? (
-                    <div className="flex items-center bg-green-50 text-green-700 px-2 py-1 rounded-full text-xs">
-                      <CheckCircle className="h-3 w-3 mr-1" />
-                      Verified
-                    </div>
-                  ) : (
-                    <div className="flex items-center bg-yellow-50 text-yellow-700 px-2 py-1 rounded-full text-xs">
-                      <AlertTriangle className="h-3 w-3 mr-1" />
-                      Unverified
-                    </div>
-                  )}
                   <span className="text-xs text-gray-500">ID: {deal.id}</span>
                 </div>
               </div>
@@ -382,8 +371,8 @@ const AdminPanel = () => {
                 <div className="flex items-center space-x-4 mt-1 text-sm text-gray-500">
                   <span className="font-medium text-gray-700">{deal.store}</span>
                   <span className="text-green-600 font-semibold">↓{deal.discount}%</span>
-                  <span className="font-bold text-black">${deal.discountedPrice}</span>
-                  <span className="line-through">${deal.originalPrice}</span>
+                  <span className="font-bold text-black">₹{deal.discountedPrice}</span>
+                  <span className="line-through">₹{deal.originalPrice}</span>
                   <div className="flex items-center">
                     <Star className="h-3 w-3 fill-yellow-400 text-yellow-400 mr-1" />
                     <span>{deal.rating}</span>

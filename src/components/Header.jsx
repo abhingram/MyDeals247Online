@@ -56,7 +56,10 @@ const Header = ({ onSearch }) => {
       <div className="max-w-7xl mx-auto px-3 sm:px-4 lg:px-8">
         <div className="flex items-center justify-between h-14 sm:h-16">
           {/* Logo - Always visible */}
-          <div className="flex items-center gap-2 sm:gap-3 flex-shrink-0">
+          <div 
+            className="flex items-center gap-2 sm:gap-3 flex-shrink-0 cursor-pointer" 
+            onClick={() => navigate('/')}
+          >
             <div className="w-8 h-8 sm:w-10 sm:h-10 bg-gradient-to-br from-orange-500 to-pink-600 rounded-lg flex items-center justify-center">
               <span className="text-white font-bold text-lg sm:text-xl">D</span>
             </div>
@@ -68,7 +71,7 @@ const Header = ({ onSearch }) => {
           {/* Desktop Navigation */}
           <nav className="hidden lg:flex items-center gap-6">
             <a href="/" className="text-gray-700 hover:text-orange-600 font-medium transition-colors">
-              New
+              Latest
             </a>
             <a href="/hot" className="text-gray-700 hover:text-orange-600 font-medium transition-colors">
               Hot
@@ -167,7 +170,7 @@ const Header = ({ onSearch }) => {
                 className="text-gray-700 hover:text-orange-600 hover:bg-orange-50 font-medium py-3 px-3 rounded-lg transition-colors min-h-[44px] flex items-center"
                 onClick={() => setMobileMenuOpen(false)}
               >
-                🆕 New
+                🆕 Latest
               </a>
               <a 
                 href="/hot" 

@@ -170,7 +170,7 @@ export default function TermsOfService() {
               <li>Errors or inaccuracies in deal information</li>
             </ul>
             <p className="text-gray-700">
-              OUR TOTAL LIABILITY FOR ANY CLAIMS ARISING OUT OF OR RELATING TO THESE TERMS OR THE SITE SHALL NOT EXCEED $100 USD OR THE AMOUNT YOU PAID US IN THE PAST 12 MONTHS, WHICHEVER IS GREATER.
+              OUR TOTAL LIABILITY FOR ANY CLAIMS ARISING OUT OF OR RELATING TO THESE TERMS OR THE SITE SHALL NOT EXCEED ₹100 INR OR THE AMOUNT YOU PAID US IN THE PAST 12 MONTHS, WHICHEVER IS GREATER.
             </p>
           </section>
 

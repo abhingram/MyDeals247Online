@@ -1,14 +1,82 @@
-import React from 'react';
-import { Facebook, Twitter, Instagram, Youtube, Mail } from 'lucide-react';
+import React, { useState } from 'react';
+import { Facebook, Twitter, Instagram, Youtube, Mail, Loader2 } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { toast } from '@/components/ui/use-toast';
 
 const Footer = () => {
+  const [newsletterEmail, setNewsletterEmail] = useState('');
+  const [isSubscribing, setIsSubscribing] = useState(false);
+
   const handleSocialClick = (platform) => {
     toast({
       title: `${platform} Link`,
       description: "🚧 This feature isn't implemented yet—but don't worry! You can request it in your next prompt! 🚀",
     });
+  };
+
+  const handleNewsletterSubscribe = async () => {
+    if (!newsletterEmail.trim()) {
+      toast({
+        title: "Email Required",
+        description: "Please enter your email address to subscribe.",
+        variant: "destructive",
+      });
+      return;
+    }
+
+    // Basic email validation
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    if (!emailRegex.test(newsletterEmail)) {
+      toast({
+        title: "Invalid Email",
+        description: "Please enter a valid email address.",
+        variant: "destructive",
+      });
+      return;
+    }
+
+    setIsSubscribing(true);
+
+    try {
+      const response = await fetch('/api/newsletter/subscribe', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({ email: newsletterEmail }),
+      });
+
+      const data = await response.json();
+
+      if (response.ok) {
+        toast({
+          title: "Successfully Subscribed!",
+          description: "Thank you for subscribing to our newsletter. You'll receive the best deals directly in your inbox!",
+        });
+        setNewsletterEmail(''); // Clear the input
+      } else {
+        toast({
+          title: "Subscription Failed",
+          description: data.error || "Something went wrong. Please try again.",
+          variant: "destructive",
+        });
+      }
+    } catch (error) {
+      console.error('Newsletter subscription error:', error);
+      toast({
+        title: "Connection Error",
+        description: "Unable to connect to the server. Please check your internet connection and try again.",
+        variant: "destructive",
+      });
+    } finally {
+      setIsSubscribing(false);
+    }
+  };
+
+  const handleNewsletterKeyPress = (e) => {
+    if (e.key === 'Enter') {
+      handleNewsletterSubscribe();
+    }
   };
 
   return (
@@ -70,8 +138,8 @@ const Footer = () => {
                 <span className="font-semibold text-white mb-4 block">Support</span>
                 <nav className="flex flex-col gap-2">
                   <a href="/contact" className="text-sm hover:text-white transition-colors">Contact Us</a>
-                  <a href="/contact#faq" className="text-sm hover:text-white transition-colors">FAQs</a>
                   <a href="/privacy-policy" className="text-sm hover:text-white transition-colors">Privacy Policy</a>
+                  <a href="/cookie-policy" className="text-sm hover:text-white transition-colors">Cookie Policy</a>
                   <a href="/terms-of-service" className="text-sm hover:text-white transition-colors">Terms of Service</a>
                 </nav>
               </div>
@@ -85,17 +153,23 @@ const Footer = () => {
               <input
                 type="email"
                 placeholder="Your email"
+                value={newsletterEmail}
+                onChange={(e) => setNewsletterEmail(e.target.value)}
+                onKeyPress={handleNewsletterKeyPress}
                 className="flex-1 px-3 py-2 bg-gray-800 border border-gray-700 rounded-lg text-sm focus:outline-none focus:ring-2 focus:ring-orange-500"
+                disabled={isSubscribing}
               />
               <Button
                 size="icon"
-                className="bg-gradient-to-r from-orange-500 to-pink-600 hover:from-orange-600 hover:to-pink-700"
-                onClick={() => toast({
-                  title: "Newsletter Signup",
-                  description: "🚧 This feature isn't implemented yet—but don't worry! You can request it in your next prompt! 🚀",
-                })}
+                className="bg-gradient-to-r from-orange-500 to-pink-600 hover:from-orange-600 hover:to-pink-700 disabled:opacity-50 disabled:cursor-not-allowed"
+                onClick={handleNewsletterSubscribe}
+                disabled={isSubscribing}
               >
-                <Mail className="h-4 w-4" />
+                {isSubscribing ? (
+                  <Loader2 className="h-4 w-4 animate-spin" />
+                ) : (
+                  <Mail className="h-4 w-4" />
+                )}
               </Button>
             </div>
           </div>

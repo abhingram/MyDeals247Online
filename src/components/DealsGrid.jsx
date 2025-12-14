@@ -142,7 +142,7 @@ const DealsGrid = ({ searchQuery, selectedCategory, filterType }) => {
   };
 
   const renderDealListView = () => (
-    <div className="grid grid-cols-1 lg:grid-cols-2 gap-3 sm:gap-4">
+    <div className="grid grid-cols-1 md:grid-cols-2 gap-3 sm:gap-4">
       {deals.map((deal, index) => (
         <motion.div
           key={deal.id}
@@ -153,49 +153,35 @@ const DealsGrid = ({ searchQuery, selectedCategory, filterType }) => {
           onClick={() => handleDealClick(deal)}
         >
           <div className="p-3 sm:p-4">
-            {/* Row 1: Deal Title - Full Width */}
-            <h3 className="font-medium text-gray-900 text-sm sm:text-base line-clamp-2 mb-3">{deal.title}</h3>
-
             {/* Content Section */}
             <div className="flex gap-3 sm:gap-4">
-              {/* Left Column: Product Info */}
-              <div className="flex-1 flex flex-col justify-end min-w-0">
+              {/* Left Column: All Content */}
+              <div className="flex-1 min-w-0">
+                {/* Row 1: Deal Title - Not bold */}
+                <h3 className="text-gray-900 text-sm line-clamp-2 mb-3">{deal.title}</h3>
+
                 {/* Row 2: Discount, Prices, Store - Equal width items */}
-                <div className="grid grid-cols-4 gap-1.5 sm:gap-2 mb-2 text-xs sm:text-sm">
+                <div className="grid grid-cols-4 gap-1.5 sm:gap-2 mb-2 text-xs">
                   <div className="flex items-center justify-center bg-green-100 text-green-700 px-1.5 sm:px-2 py-1 rounded-md">
                     <span className="truncate">↓{deal.discount}%</span>
                   </div>
                   <div className="flex items-center justify-center font-bold text-gray-900 truncate">
-                    ${deal.discountedPrice}
+                    ₹{deal.discountedPrice}
                   </div>
                   <div className="flex items-center justify-center text-gray-400 line-through truncate">
-                    ${deal.originalPrice}
+                    ₹{deal.originalPrice}
                   </div>
                   <div className="flex items-center justify-center bg-orange-50 text-orange-700 px-1.5 sm:px-2 py-1 rounded-md">
                     <span className="truncate text-xs">{deal.store}</span>
                   </div>
                 </div>
 
-                {/* Row 3: Rating, Verified, Clicks, Expiration - Equal width items */}
-                <div className="grid grid-cols-4 gap-1.5 sm:gap-2 text-xs sm:text-sm">
+                {/* Row 3: Rating, Clicks, Expiration - Equal width items */}
+                <div className="grid grid-cols-3 gap-1.5 sm:gap-2 text-xs">
                   <div className="flex items-center justify-center bg-yellow-50 text-yellow-700 px-1.5 sm:px-2 py-1 rounded-md">
                     <Star className="h-3 w-3 sm:h-3.5 sm:w-3.5 fill-yellow-400 text-yellow-400 mr-0.5 sm:mr-1 flex-shrink-0" />
                     <span className="truncate">{deal.rating}</span>
                   </div>
-                  
-                  {deal.verified ? (
-                    <div className="flex items-center justify-center bg-green-50 text-green-700 px-1.5 sm:px-2 py-1 rounded-md">
-                      <CheckCircle className="h-3 w-3 sm:h-3.5 sm:w-3.5 mr-0.5 sm:mr-1 flex-shrink-0" />
-                      <span className="text-xs truncate hidden sm:inline">Verified</span>
-                      <span className="text-xs truncate sm:hidden">✓</span>
-                    </div>
-                  ) : (
-                    <div className="flex items-center justify-center bg-yellow-50 text-yellow-600 px-1.5 sm:px-2 py-1 rounded-md">
-                      <AlertTriangle className="h-3 w-3 sm:h-3.5 sm:w-3.5 mr-0.5 sm:mr-1 flex-shrink-0" />
-                      <span className="text-xs truncate hidden sm:inline">Unverified</span>
-                      <span className="text-xs truncate sm:hidden">⚠</span>
-                    </div>
-                  )}
 
                   <div className="flex items-center justify-center bg-blue-50 text-blue-700 px-1.5 sm:px-2 py-1 rounded-md">
                     <Shield className="h-3 w-3 sm:h-3.5 sm:w-3.5 mr-0.5 sm:mr-1 flex-shrink-0" />
@@ -209,12 +195,12 @@ const DealsGrid = ({ searchQuery, selectedCategory, filterType }) => {
                 </div>
               </div>
 
-              {/* Right Column: Image */}
-              <div className="flex-shrink-0 flex items-end">
+              {/* Right Column: Image Only - Full height */}
+              <div className="flex-shrink-0 w-24 h-20 sm:w-32 sm:h-24">
                 <img
                   src={deal.image || "https://images.unsplash.com/photo-1595872018818-97555653a011"}
                   alt={deal.title}
-                  className="w-20 h-16 sm:w-28 sm:h-24 object-cover rounded-lg shadow-sm"
+                  className="w-full h-full object-cover rounded-lg shadow-sm"
                 />
               </div>
             </div>
@@ -232,7 +218,7 @@ const DealsGrid = ({ searchQuery, selectedCategory, filterType }) => {
             {filterType === 'hot' ? '🔥 Hot Deals' :
              filterType === 'popular' ? '⭐ Popular Deals' :
              filterType === 'talking' ? '💬 Talking Deals' :
-             '🆕 New Deals'}
+             '🆕 Latest Deals'}
           </h2>
           <div className="flex items-center space-x-2 sm:space-x-4 w-full sm:w-auto">
             {/* View Toggle */}

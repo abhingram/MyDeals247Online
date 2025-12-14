@@ -435,3 +435,16 @@ UPDATE users SET
     COALESCE((SELECT MAX(clicked_at) FROM deal_clicks WHERE deal_clicks.user_id = users.firebase_uid), users.created_at),
     users.created_at
   );
+
+-- Create newsletter_subscribers table
+CREATE TABLE IF NOT EXISTS newsletter_subscribers (
+  id INT PRIMARY KEY AUTO_INCREMENT,
+  email VARCHAR(255) NOT NULL UNIQUE,
+  subscribed_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+  unsubscribed_at TIMESTAMP NULL,
+  is_active BOOLEAN DEFAULT 1,
+  subscription_source VARCHAR(50) DEFAULT 'website',
+  INDEX idx_email (email),
+  INDEX idx_is_active (is_active),
+  INDEX idx_subscribed_at (subscribed_at)
+);
