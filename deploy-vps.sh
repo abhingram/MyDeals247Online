@@ -95,7 +95,7 @@ FRONTEND_URL=https://deals247.online
 # Database Configuration (Hostinger Remote MySQL)
 DB_HOST=srv994.hstgr.io
 DB_PORT=3306
-DB_NAME=u515501238_deals247_db
+DB_NAME=u515501238_MyDeals247
 DB_USER=u515501238_deals247_user
 DB_PASSWORD=2ap5HYzh5@R8&Cq
 
