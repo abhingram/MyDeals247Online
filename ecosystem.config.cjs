@@ -7,7 +7,6 @@ module.exports = {
       autorestart: true,
       watch: false,
       max_memory_restart: '1G',
-      env_file: '/var/www/deals247/server/.env',
       env: {
         NODE_ENV: 'production',
         PORT: 5000,
