@@ -113,7 +113,7 @@ router.get('/', async (req, res) => {
         orderBy = 'created_at DESC';
         break;
       case 'ending_soon':
-        orderBy = 'expires_at IS NULL ASC, expires_at ASC';
+        orderBy = 'expires_at ASC NULLS LAST';
         break;
       case 'highest_rated':
         orderBy = 'rating DESC, reviews DESC';
