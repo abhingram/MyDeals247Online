@@ -66,7 +66,7 @@ docker-compose logs -f
 sudo apt update && sudo apt install -y nodejs npm nginx mysql-client
 
 # 2. Clone and build
-git clone https://github.com/yourusername/deals247.git
+git clone https://github.com/abhingram/MyDeals247.git
 cd deals247
 npm install
 npm run build

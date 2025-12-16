@@ -7,7 +7,7 @@
 - **Database**: Hostinger Remote MySQL (srv994.hstgr.io)
 - **SSL**: Will be configured with Let's Encrypt
 - **Backend Port**: 5000
-- **Repository**: https://github.com/abhingram/deals247online
+- **Repository**: https://github.com/abhingram/MyDeals247Online
 
 ---
 
@@ -114,7 +114,7 @@ sudo npm install -g pm2
 ### 4. Clone Application
 ```bash
 cd /var/www
-sudo git clone https://github.com/abhingram/deals247online.git deals247
+sudo git clone https://github.com/abhingram/MyDeals247Online.git deals247
 sudo chown -R $USER:$USER /var/www/deals247
 cd /var/www/deals247
 ```

@@ -95,7 +95,7 @@ EXIT;
 cd /var/www
 
 # Clone your repository
-sudo git clone https://github.com/abhingram/deals247online.git deals247
+sudo git clone https://github.com/abhingram/MyDeals247.git deals247
 
 # Set permissions
 sudo chown -R $USER:$USER /var/www/deals247

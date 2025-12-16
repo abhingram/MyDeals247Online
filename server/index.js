@@ -25,8 +25,9 @@ import { startNotificationScheduler } from './services/notificationScheduler.js'
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 
-// Load environment variables from server/.env
-const envPath = path.join(__dirname, '.env');
+// Load environment variables based on NODE_ENV
+const envFile = process.env.NODE_ENV === 'production' ? '.env.production' : '.env';
+const envPath = path.join(__dirname, envFile);
 dotenv.config({ path: envPath });
 
 console.log('🔧 Environment Configuration:');

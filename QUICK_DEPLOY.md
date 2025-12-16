@@ -28,7 +28,7 @@ EXIT;
 ```bash
 # 4. Clone & Setup
 cd /var/www
-sudo git clone https://github.com/abhingram/deals247online.git deals247
+sudo git clone https://github.com/abhingram/MyDeals247.git deals247
 sudo chown -R $USER:$USER /var/www/deals247
 cd /var/www/deals247
 

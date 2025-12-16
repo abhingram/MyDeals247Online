@@ -13,7 +13,7 @@ echo "=================================================="
 DOMAIN="deals247.online"
 VPS_IP="YOUR_VPS_IP"  # You'll get this from Hostinger
 APP_DIR="/var/www/deals247"
-GITHUB_REPO="https://github.com/abhingram/deals247online.git"
+GITHUB_REPO="https://github.com/abhingram/MyDeals247Online.git"
 
 echo ""
 echo "📋 Step 1: System Update & Install Dependencies"
