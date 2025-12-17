@@ -156,7 +156,9 @@ router.get('/', async (req, res) => {
       sortBy
     });
   } catch (error) {
-    console.error('Error fetching deals:', error);
+    console.error('Error fetching deals:', error.message);
+    console.error('Error code:', error.code);
+    console.error('Full error:', error);
     res.status(500).json({ error: 'Failed to fetch deals' });
   }
 });
