@@ -1,8 +1,17 @@
-import express from 'express';
-import cors from 'cors';
+// Load environment variables FIRST, before any other imports
 import dotenv from 'dotenv';
 import path from 'path';
 import { fileURLToPath } from 'url';
+
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
+
+// Load environment variables - force production for VPS deployment
+const envPath = path.join(__dirname, '.env.production');
+dotenv.config({ path: envPath });
+
+import express from 'express';
+import cors from 'cors';
 import dealsRoutes from './routes/deals.js';
 import categoriesRoutes from './routes/categories.js';
 import storesRoutes from './routes/stores.js';
@@ -20,14 +29,6 @@ import trustRoutes from './routes/trust.js';
 import contactRoutes from './routes/contact.js';
 import newsletterRoutes from './routes/newsletter.js';
 import { startNotificationScheduler } from './services/notificationScheduler.js';
-
-// Get current directory for ES modules
-const __filename = fileURLToPath(import.meta.url);
-const __dirname = path.dirname(__filename);
-
-// Load environment variables - force production for VPS deployment
-const envPath = path.join(__dirname, '.env.production');
-dotenv.config({ path: envPath });
 
 console.log('🔧 Environment Configuration:');
 console.log('   ENV file path:', envPath);
