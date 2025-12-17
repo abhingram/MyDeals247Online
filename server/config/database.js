@@ -16,29 +16,7 @@ const pool = mysql.createPool({
   keepAliveInitialDelay: 0
 });
 
-// Test connection with retry logic
-const testConnection = async (retries = 3) => {
-  for (let i = 0; i < retries; i++) {
-    try {
-      const connection = await pool.getConnection();
-      console.log('✅ MySQL Database connected successfully');
-      connection.release();
-      return true;
-    } catch (err) {
-      console.error(`❌ MySQL Database connection attempt ${i + 1} failed:`, err.message);
-      if (i === retries - 1) {
-        console.error('❌ All database connection attempts failed');
-        return false;
-      }
-      // Wait before retrying
-      await new Promise(resolve => setTimeout(resolve, 2000));
-    }
-  }
-};
-
-// testConnection(); // Disabled to prevent startup connection attempts
-
-export default pool;
+// Add error handling for the pool
 pool.on('error', (err) => {
   console.error('Database pool error:', err);
   if (err.code === 'ECONNRESET' || err.code === 'ENOTFOUND' || err.code === 'ECONNREFUSED') {
