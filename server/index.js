@@ -26,6 +26,7 @@ const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 
 // Load environment variables based on NODE_ENV
+console.log('NODE_ENV:', process.env.NODE_ENV);
 const envFile = process.env.NODE_ENV === 'production' ? '.env.production' : '.env';
 const envPath = path.join(__dirname, envFile);
 dotenv.config({ path: envPath });
@@ -34,6 +35,9 @@ console.log('🔧 Environment Configuration:');
 console.log('   ENV file path:', envPath);
 console.log('   PORT:', process.env.PORT || 'NOT SET');
 console.log('   DB_HOST:', process.env.DB_HOST || 'NOT SET');
+console.log('   DB_USER:', process.env.DB_USER || 'NOT SET');
+console.log('   DB_PASSWORD:', process.env.DB_PASSWORD ? '✅ SET' : '❌ NOT SET');
+console.log('   DB_NAME:', process.env.DB_NAME || 'NOT SET');
 console.log('   EMAIL_USER:', process.env.EMAIL_USER || 'NOT SET');
 console.log('   EMAIL_PASSWORD:', process.env.EMAIL_PASSWORD ? '✅ SET' : '❌ NOT SET');
 console.log('   NODE_ENV:', process.env.NODE_ENV || 'development');
