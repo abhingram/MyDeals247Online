@@ -81,16 +81,21 @@ app.use((err, req, res, next) => {
 });
 
 app.listen(PORT, () => {
-  console.log(`🚀 Server is running on http://localhost:${PORT}`);
+  console.log(`✅ Server successfully bound to port ${PORT}`);
 
-  // Start notification scheduler asynchronously to avoid blocking server startup
-  setTimeout(() => {
-    try {
-      console.log('🔄 Starting background schedulers...');
-      startNotificationScheduler();
-    } catch (error) {
-      console.error('❌ Failed to start notification scheduler:', error.message);
-      // Don't crash the server if scheduler fails
-    }
-  }, 1000); // Small delay to ensure server is fully ready
+  // Start background schedulers only if explicitly enabled
+  const enableSchedulers = process.env.ENABLE_SCHEDULERS === 'true';
+  if (enableSchedulers) {
+    setTimeout(() => {
+      try {
+        console.log('🔄 Starting background schedulers...');
+        startNotificationScheduler();
+      } catch (error) {
+        console.error('❌ Failed to start notification scheduler:', error.message);
+        // Don't crash the server if scheduler fails
+      }
+    }, 1000);
+  } else {
+    console.log('⏭️ Background schedulers disabled (ENABLE_SCHEDULERS != true)');
+  }
 });
